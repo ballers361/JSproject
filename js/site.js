@@ -1,11 +1,18 @@
 (function($) {
   $(document).ready(
     function() {
-      var instagram_API_URL = 'https://api.instagram.com/v1/';
-      var instagram_client_ID = 'e06c2840a8c84fba97d67d7199b9e29d';
-      var instagram_client_secret = '21ca159135a94f38abed3d0a4ace5c58';
-      var instagram_oAuth_URL = 'https://api.instagram.com/oauth/authorize/?client_id='+ instagram_client_ID + 'redirect_uri=361api.pro' +'&response_type=code';
-      console.log(instagram_oAuth_URL);
+      var spotify_API_URL = 'https://api.spotify.com/v1/';
+      var spotify_client_ID = '09c1185efbd44df3a3a7c566b1878f40';
+      var spotify_client_secret = 'c1c16dda17f341e0a973f8c1b0fd6bea';
+      var URL = 'https://api.instagram.com/oauth/authorize/?client_id=78960b71429a4346b1ca48db7e1f0d95&redirect_uri=http://361api.com_type=code'
+$.get(
+  'https://api.spotify.com/v1/albums/0sNOF9WDwhWunNAHPD3Baj',
+  function(data) {
+    $('#primary').append(
+    '<p>' + data.album_type + '</p>'
+    );
+  });
+
         }
 
   );
