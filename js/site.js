@@ -1,21 +1,12 @@
-$.noConflict();
 (function($) {
   $(document).ready(
     function() {
-      headers: { 'X-Auth-Token': 'c2c44c3caf0b44e69d7ee6151238ddb2' },
-      url: 'http://api.football-data.org/v1/fixtures?timeFrame=n1',
-      dataType: 'json',
-      type: 'GET',
-      $.done(function(response) {
-
-        var regex = /.*?(\d+)$/; // the ? makes the first part non-greedy
-        var res = regex.exec(response.fixtures[0]._links.awayTeam.href);
-        var teamId = res[1];
-        console.log(teamId);
-      }
-
+      var instagram_API_URL = 'https://api.instagram.com/v1/';
+      var instagram_client_ID = 'e06c2840a8c84fba97d67d7199b9e29d';
+      var instagram_client_secret = '21ca159135a94f38abed3d0a4ace5c58';
+      var instagram_oAuth_URL = 'https://api.instagram.com/oauth/authorize/?client_id='+ instagram_client_ID + 'redirect_uri=361api.pro' +'&response_type=code';
+      console.log(instagram_oAuth_URL);
         }
 
-    });
+  );
 })(jQuery);
-
