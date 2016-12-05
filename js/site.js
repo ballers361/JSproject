@@ -19,8 +19,7 @@
           );
           event.preventDefault();
       });
+    });
   });
-
-});
 
 })(jQuery);
