@@ -2,7 +2,7 @@
   $(document).ready(
   function() {
     var uName, spotify_API_URL, spotify_client_ID, spotify_search_URL, spotify_client_secret;
-    var spotify_artist_albums, artist_ID;
+    var spotify_artist_albums, artist_ID, artist_bio;
     var num_followers, popularity_rating, genres, image_url, popularity_rating, associated_genres;
 
   $('#sp-form').on('submit', function(event) {
@@ -28,7 +28,7 @@
 
       });
 
-      var artist_bio = function() (
+      artist_bio = function() (
           $.get(
             spotify_API_URL + 'artists/' + artist_ID, function(data) {
               num_followers = data.followers.total;
@@ -46,9 +46,10 @@
               $('#image').append(
                 '<img src="' + image_url + '" alt=" '+ uName +'" />'
               );
+              
 
-            }));
+
+      }));
     });
   });
-
 })(jQuery);
