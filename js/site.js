@@ -33,6 +33,7 @@
             spotify_API_URL + 'artists/' + artist_ID, function(data) {
               num_followers = data.name;
               popularity_rating = data.popularity;
+              image_url = data.images[0].url;
             //  image_url = ;
 
               $('#followers').append(
@@ -40,8 +41,9 @@
               );
               console.log(num_followers);
               console.log(artist_ID);
+              console.log(image_url);
               $('#image').append(
-                '<img src="' +'" alt="" />'
+                '<img src="' + image_url + '" alt=" '+ uName +'" />'
               );
 
             }));
