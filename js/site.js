@@ -3,7 +3,7 @@
   function() {
     var uName, spotify_API_URL, spotify_client_ID, spotify_search_URL, spotify_client_secret;
     var spotify_artist_albums, artist_ID;
-    var num_followers, popularity_rating, genres, image_url;
+    var num_followers, popularity_rating, genres, image_url, popularity_rating, associated_genres;
 
   $('#sp-form').on('submit', function(event) {
       uName = $('#sp-username').val();
@@ -31,17 +31,18 @@
       var artist_bio = function() (
           $.get(
             spotify_API_URL + 'artists/' + artist_ID, function(data) {
-              num_followers = data.name;
+              num_followers = data.followers.total;
               popularity_rating = data.popularity;
               image_url = data.images[0].url;
-            //  image_url = ;
+              associated_genres = data.genres;
 
               $('#followers').append(
-                '<p>' + popularity_rating + '</p>'
+                '<p>' + num_followers + '</p>'
               );
               console.log(num_followers);
               console.log(artist_ID);
               console.log(image_url);
+              console.log(data.genres);
               $('#image').append(
                 '<img src="' + image_url + '" alt=" '+ uName +'" />'
               );
