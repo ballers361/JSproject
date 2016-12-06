@@ -4,6 +4,7 @@
     var uName, spotify_API_URL, spotify_client_ID, spotify_search_URL, spotify_client_secret;
     var spotify_artist_albums, artist_ID, artist_bio, album_bio, searchQuery, artistQuery;
     var num_followers, popularity_rating, genres, image_url, popularity_rating, associated_genres;
+    var artists_albums_function, artist_albums_URL;
 
   $('#sp-form').on('submit', function(event) {
       uName = $('#sp-username').val();
@@ -29,7 +30,8 @@
         popularity_rating = artistQuery.popularity;
         image_url = artistQuery.images[0].url;
         associated_genres = artistQuery.genres;
-        console.log(artistQuery);
+        artist_albums_URL = spotify_API_URL + 'artists/' + artist_ID + '/albums';
+        //console.log(artist_albums_URL);
 
         $('#number-of-followers').append(
           '  ' +  num_followers
@@ -43,11 +45,24 @@
             $('#artist-genres').append(
               '<li>' + associated_genres[i] + '</li>'
             )};
+            artists_albums_function();
 
-    });
+          });
+        event.preventDefault();
+      }).then(function(data) {
+        $.get(
+          artist_albums_URL, function() {
 
-      event.preventDefault();
-  });
+          }
+        )
+      });
+
+      artists_albums_function = function() {
+        console.log(image_url);
+
+      };
+
+
 
 
     });
