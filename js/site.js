@@ -17,16 +17,17 @@
       $.get(
         spotify_search_URL, function(data) {
           artist_ID = data.artists.items[0].id;
-          artist_albums_URL = spotify_API_URL + '/artists/' + artist_ID + '/albums';
+          artist_albums_URL = spotify_API_URL + 'artists/' + artist_ID + '/albums';
 
           $('#primary').append(
           '<p>' + '</p>'
           );
             event.preventDefault();
 
-            album_bio();
 
             artist_bio();
+            album_bio();
+
 
       });
 
@@ -59,6 +60,9 @@
         $.get(
           artist_albums_URL, function(data) {
             console.log(artist_albums_URL);
+            $('#artist-genres').append(
+              '<li>' + artist_albums_URL + '</li>'
+            );
           }
 
         )};
