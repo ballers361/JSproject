@@ -51,8 +51,6 @@
                 $('#artist-genres').append(
                 '<li>' + associated_genres[i] + '</li>'
                 )};
-              
-
 
       }));
     });
