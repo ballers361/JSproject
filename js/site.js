@@ -36,8 +36,8 @@
               image_url = data.images[0].url;
               associated_genres = data.genres;
 
-              $('#followers').append(
-                '<p>' + num_followers + '</p>'
+              $('#number-of-followers').append(
+                '  ' +  num_followers
               );
               console.log(num_followers);
               console.log(artist_ID);
@@ -46,12 +46,12 @@
               $('#image').append(
                 '<img src="' + image_url + '" alt=" '+ uName +'" />'
               );
-                
+
             for ( var i = 0; i < associated_genres.length; i++) {
                 $('#artist-genres').append(
                 '<li>' + associated_genres[i] + '</li>'
                 )};
-              
+
 
 
       }));
