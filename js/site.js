@@ -13,7 +13,8 @@
       spotify_search_URL = 'https://api.spotify.com/v1/search?q='+ uName +'&type=artist&limit=1';
       console.log(uName);
       console.log(spotify_search_URL);
-
+      //function to get the user's search query for an artist's name
+      
       $.get(
         spotify_search_URL, function(data) {
           artist_ID = data.artists.items[0].id;
