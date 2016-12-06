@@ -2,7 +2,7 @@
   $(document).ready(
   function() {
     var uName, spotify_API_URL, spotify_client_ID, spotify_search_URL, spotify_client_secret;
-    var spotify_artist_albums, artist_ID, artist_bio;
+    var spotify_artist_albums, artist_ID, artist_bio, album_bio;
     var num_followers, popularity_rating, genres, image_url, popularity_rating, associated_genres;
 
   $('#sp-form').on('submit', function(event) {
@@ -24,11 +24,13 @@
           );
             event.preventDefault();
 
+            album_bio();
+
             artist_bio();
 
       });
 
-      artist_bio = function() (
+      artist_bio = function() {
           $.get(
             spotify_API_URL + 'artists/' + artist_ID, function(data) {
               num_followers = data.followers.total;
@@ -50,11 +52,16 @@
             for ( var i = 0; i < associated_genres.length; i++) {
                 $('#artist-genres').append(
                 '<li>' + associated_genres[i] + '</li>'
-                )};
+              )};
+      })};
 
+      album_bio = function() {
+        $.get(
+          artist_albums_URL, function(data) {
+            console.log(artist_albums_URL);
+          }
 
-
-      }));
+        )};
     });
   });
 })(jQuery);
