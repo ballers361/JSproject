@@ -46,6 +46,11 @@
               $('#image').append(
                 '<img src="' + image_url + '" alt=" '+ uName +'" />'
               );
+                
+            for ( var i = 0; i < associated_genres.length; i++) {
+                $('#artist-genres').append(
+                '<li>' + associated_genres[i] + '</li>'
+                )};
               
 
 
