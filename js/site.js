@@ -52,8 +52,8 @@
 
             for ( var i = 0; i < associated_genres.length; i++) {
                 $('#artist-genres').append(
-                '<li>' + associated_genres[i] + '</li>'
-              )};
+                  '<li>' + associated_genres[i] + '</li>'
+                )};
       })};
 
       album_bio = function() {
