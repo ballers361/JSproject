@@ -69,7 +69,7 @@
 
             };
 
-            console.log(album_name_array)
+            //console.log(album_name_array)
 
           });
       };
