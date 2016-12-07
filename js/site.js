@@ -69,7 +69,11 @@
             album_name_array = [];
             album_image_array = [];
 
+<<<<<<< HEAD
+            for (var j = 0; j <; j++) {
+=======
             for (var j = 0; j <= 5; j++) {
+>>>>>>> ad997887e20ce4e9fd3dd0c13cfac9db60d5080a
               album_name_array.push(album_data_array[j].name);
                 $('#artist-five-albums').append(
                 '<li>' + album_name_array[j] + '</li>')
