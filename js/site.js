@@ -40,7 +40,6 @@
           '  ' + popularity_rating
         );
 
-
         $('#image').append(
           '<img src="' + image_url + '" alt=" '+ uName +'" />'
         );
@@ -57,9 +56,7 @@
       }).then(function() {
         //album_data = data;
         artists_albums_function();
-
       });
-
       artists_albums_function = function() {
         console.log(image_url);
         $.get(
@@ -77,17 +74,9 @@
 
             for (var k = 0; k <6; k++) {
               album_image_array.push(album_data_array[k].images[2].url)
-
             };
-
-            //console.log(album_name_array)
-
           });
       };
-
-
-
-
     });
   });
 })(jQuery);
