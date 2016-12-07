@@ -64,7 +64,7 @@
 
             album_name_array = [];
 
-            for (var j = 0; j < 6; j++) {
+            for (var j = 0; j <; j++) {
               album_name_array.push(album_data_array[j].name);
                 $('#artist-five-albums').append(
                 '<li>' + album_name_array[j] + '</li>')
