@@ -43,7 +43,7 @@
         );
 
         $('#image').append(
-          '<img src="' + artistIMG + '" alt=" '+ uName +'" />'
+          '<img id="image" src="' + artistIMG + '" alt=" '+ uName +'" />'
         );
 
         //console.log(popularityRating);
