@@ -22,9 +22,9 @@ html {
   background-color: #93be89;
   color: #355935;
   font-family: Calibri, Arial, sans-serif;
-  padding-left: 0.0825em;/*33px/400px=0.0825 */
-  padding-right: 0.0825em;/*33px/400px=0.0825 */
-  text-align: cente;
+  padding-left: 0em;/*33px/400px=0.0825 */
+  padding-right: 0em;/*33px/400px=0.0825 */
+  text-align: center;
 }
 
 h1 {
@@ -35,7 +35,7 @@ h1 {
   padding-bottom: 0.2em;
   padding-left: 0.525em;
   text-transform: uppercase;
-  text-align: center;
+
 }
 
 
