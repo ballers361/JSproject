@@ -33,6 +33,7 @@
         artist_albums_URL = spotify_API_URL + 'artists/' + artist_ID + '/albums';
         console.log(artist_ID);
 
+        //appending number of followers
         $('#number-of-followers').append(
           '  ' +  num_followers
         );
