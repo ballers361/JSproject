@@ -1,31 +1,34 @@
+//This javascript file contains various functions that serve
+//the purpose of utilizing a REST API, Spotify, and hit its
+//endpoints to access various data from the JSON located at the
+//various endpoints
+
 (function($) {
   $(document).ready(
   function() {
-    var uName, spotifyAPIURL, spotifyCclientID, spotifySearchURL, spotifyClientSecret;
-    var spotifyArtistAlbums, artistID, artistBio, albumBio, searchQuery, artistQuery;
-    var numFollowers, popularityRating, genres, popularityRating, popularityRating, associatedGenres;
+    //Declaring all members
+    var uName, spotifyAPIURL, spotifySearchURL;
+    var artistID, searchQuery, artistQuery;
+    var numFollowers, popularityRating, associatedGenres;
     var artistsAlbumsFunction, artistAlbumsURL, albumNameArray, albumImageArray, albumDataArray;
     var i, j, k;
     var artistIMG;
 
+    //firing up the event as the user hits the submit key
     $('#sp-form').on('submit', function(event) {
       uName = $('#sp-username').val();
       spotifyAPIURL = 'https://api.spotify.com/v1/';
-      spotifyCclientID = '09c1185efbd44df3a3a7c566b1878f40';
-      spotifyClientSecret = 'c1c16dda17f341e0a973f8c1b0fd6bea';
+      //Hitting the spotify search API with the user's search query
       spotifySearchURL = 'https://api.spotify.com/v1/search?q='+ uName +'&type=artist&limit=1';
-      //console.log(uName);
-      //console.log(spotifySearchURL);
-      //function to get the user's search query for an artist's name
 
       $.when(
     $.get(spotifySearchURL)
   ).then(function(data) {
+    //storing data from API request in reference variable for later usage
     searchQuery = data;
-    //artistID = initialRequest.artists.items[0].id;
-    //artistAlbumsURL = spotifyAPIURL + 'artists/' + artistID + '/albums' ;
     $.get(spotifyAPIURL + 'artists/' + searchQuery.artists.items[0].id,
       function(data) {
+        //initializing some members
         artistQuery = data;
         artistID = searchQuery.artists.items[0].id;
         numFollowers = artistQuery.followers.total;
@@ -35,6 +38,8 @@
         artistAlbumsURL = spotifyAPIURL + 'artists/' + artistID + '/albums';
         console.log(artistID);
 
+        //Appending specified artist's follows an populatity
+        //info to index.html file
         $('#number-of-followers').append(
           '  ' +  numFollowers
         );
@@ -46,30 +51,34 @@
           '<img id="image" src="' + artistIMG + '" alt=" '+ uName +'" />'
         );
 
-        //console.log(popularityRating);
-
+        //for loop to append each listed genre to index file
         for (i = 0; i < associatedGenres.length; i++) {
           $('#artist-genres').append(
               '<li>' + associatedGenres[i] + '</li>'
             )}
-        //artistsAlbumsFunction();
+        //calling function
+        artistsAlbumsFunction();
 
       });
     event.preventDefault();
     return null;
   }).then(function() {
         //album_data = data;
-    artistsAlbumsFunction();
+    //artistsAlbumsFunction();
   });
+
+      //function to attain artist's album information
       artistsAlbumsFunction = function() {
         console.log(popularityRating);
         $.get(
           artistAlbumsURL, function(data) {
             albumDataArray = data.items;
 
+            //initializing fields as arrays
             albumNameArray = [];
             albumImageArray = [];
 
+            //for loop to append album name to index file
             for (j = 0; j <= 5; j++) {
               albumNameArray.push(albumDataArray[j].name);
               $('#artist-five-albums').append(
