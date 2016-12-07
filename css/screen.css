@@ -24,7 +24,7 @@ html {
   font-family: Calibri, Arial, sans-serif;
   padding-left: 0.0825em;/*33px/400px=0.0825 */
   padding-right: 0.0825em;/*33px/400px=0.0825 */
-  text-align: center;
+  text-align: cente;
 }
 
 h1 {
@@ -75,6 +75,10 @@ header {
   padding-bottom: 4em;
   height: 11.11em;
   align-items: center;
+}
+
+form {
+  padding-top: 1em;
 }
 
 article {
