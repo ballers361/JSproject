@@ -6,6 +6,7 @@
     var numFollowers, popularityRating, genres, popularityRating, popularityRating, associatedGenres;
     var artistsAlbumsFunction, artistAlbumsURL, albumNameArray, albumImageArray, albumDataArray;
     var i, j, k;
+    var artistIMG;
 
     $('#sp-form').on('submit', function(event) {
       uName = $('#sp-username').val();
@@ -29,7 +30,7 @@
         artistID = searchQuery.artists.items[0].id;
         numFollowers = artistQuery.followers.total;
         popularityRating = artistQuery.popularity;
-        popularityRating = artistQuery.images[0].url;
+        artistIMG = artistQuery.images[0].url;
         associatedGenres = artistQuery.genres;
         artistAlbumsURL = spotifyAPIURL + 'artists/' + artistID + '/albums';
         console.log(artistID);
@@ -42,14 +43,16 @@
         );
 
         $('#image').append(
-          '<img src="' + popularityRating + '" alt=" '+ uName +'" />'
+          '<img src="' + artistIMG + '" alt=" '+ uName +'" />'
         );
+
+        //console.log(popularityRating);
 
         for (i = 0; i < associatedGenres.length; i++) {
           $('#artist-genres').append(
               '<li>' + associatedGenres[i] + '</li>'
             )}
-        artistsAlbumsFunction();
+        //artistsAlbumsFunction();
 
       });
     event.preventDefault();
