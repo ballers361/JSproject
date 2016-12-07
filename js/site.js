@@ -31,11 +31,15 @@
         image_url = artistQuery.images[0].url;
         associated_genres = artistQuery.genres;
         artist_albums_URL = spotify_API_URL + 'artists/' + artist_ID + '/albums';
-        //console.log(artist_albums_URL);
+        console.log(artist_ID);
 
         $('#number-of-followers').append(
           '  ' +  num_followers
         );
+        $('#artist-popularity-rating').append(
+          '  ' + popularity_rating
+        );
+
 
         $('#image').append(
           '<img src="' + image_url + '" alt=" '+ uName +'" />'
@@ -63,11 +67,17 @@
             album_data_array = data.items;
 
             album_name_array = [];
+            album_image_array = [];
 
-            for (var j = 0; j < 6; j++) {
+            for (var j = 0; j <= 5; j++) {
               album_name_array.push(album_data_array[j].name);
                 $('#artist-five-albums').append(
                 '<li>' + album_name_array[j] + '</li>')
+            };
+
+            for (var k = 0; k <6; k++) {
+              album_image_array.push(album_data_array[k].images[2].url)
+
             };
 
             //console.log(album_name_array)
