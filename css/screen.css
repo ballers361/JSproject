@@ -64,7 +64,8 @@ figcaption {
 }
 
 
-img {
+#image {
+  display:block;
   max-width: 100%;
 }
 footer {
@@ -108,4 +109,3 @@ img {
 }
 
 /* ===== State STYLES ===== */
-
